@@ -18,7 +18,8 @@
       "usesAppleSignIn": true,
       "infoPlist": {
         "NSCameraUsageDescription": "PawMe needs camera access to scan and identify your pet's breed.",
-        "NSPhotoLibraryUsageDescription": "PawMe needs photo library access to select pet photos for breed identification."
+        "NSPhotoLibraryUsageDescription": "PawMe needs photo library access to select pet photos for breed identification.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {

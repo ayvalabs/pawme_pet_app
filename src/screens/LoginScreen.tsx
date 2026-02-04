@@ -10,11 +10,12 @@ import {
   ScrollView,
   ActivityIndicator,
   Alert,
+  Image,
 } from 'react-native';
 import { Mail, Lock, Eye, EyeOff, User } from 'lucide-react-native';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import { useAuth } from '../contexts/AuthContext';
-import { Button, PawIcon } from '../components';
+import { Button } from '../components';
 import colors from '../utils/colors';
 
 interface LoginScreenProps {
@@ -125,11 +126,15 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onSuccess }) => {
       >
         {/* Header */}
         <View style={styles.header}>
-          <PawIcon size={100} variant="filled" />
-          <Text style={styles.title}>
-            <Text style={styles.titlePaw}>PAW</Text>
-            <Text style={styles.titleMe}>ME</Text>
-          </Text>
+          <Image 
+            source={require('../../assets/icon.png')} 
+            style={styles.logoImage} 
+          />
+          <Image 
+            source={require('../../assets/text.png')} 
+            style={styles.textImage} 
+            resizeMode="contain"
+          />
           <Text style={styles.subtitle}>
             {isLogin ? 'Welcome back, pet parent!' : 'Join the pet parent family!'}
           </Text>
@@ -286,6 +291,17 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     marginBottom: 32,
+  },
+  logoImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 24,
+    marginBottom: 12,
+  },
+  textImage: {
+    width: 180,
+    height: 50,
+    marginBottom: 8,
   },
   logoContainer: {
     width: 80,

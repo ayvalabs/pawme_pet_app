@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated, Easing } from 'react-native';
+import { View, Text, StyleSheet, Animated, Easing, Image } from 'react-native';
 import { Heart, Camera } from 'lucide-react-native';
 import { Button } from '../components';
 import colors from '../utils/colors';
@@ -36,9 +36,10 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ onStartCaptu
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.logoContainer}>
-          <View style={styles.mainLogo}>
-            <Text style={styles.pawIcon}>🐾</Text>
-          </View>
+          <Image 
+            source={require('../../assets/icon.png')} 
+            style={styles.logoImage} 
+          />
           <Animated.View 
             style={[
               styles.heartBadge,
@@ -50,10 +51,11 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ onStartCaptu
         </View>
         
         <View style={styles.textContainer}>
-          <Text style={styles.title}>
-            <Text style={styles.titlePaw}>PAW</Text>
-            <Text style={styles.titleMe}>ME</Text>
-          </Text>
+          <Image 
+            source={require('../../assets/text.png')} 
+            style={styles.textImage} 
+            resizeMode="contain"
+          />
           <Text style={styles.subtitle}>
             Made with ❤️ for the world's cutest pet parents!
           </Text>
@@ -87,6 +89,15 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: 'relative',
+  },
+  logoImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 32,
+  },
+  textImage: {
+    width: 200,
+    height: 55,
   },
   mainLogo: {
     width: 112,
